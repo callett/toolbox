@@ -1,0 +1,29 @@
+# NAME: Blocked
+# AUTHOR: Callett
+# DOMAIN-KEYWORD: 9
+# DOMAIN-SUFFIX: 14
+# TOTAL: 23
+
+DOMAIN-SUFFIX,tw
+DOMAIN-SUFFIX,gstatic.com
+DOMAIN-SUFFIX,ampproject.org
+DOMAIN-SUFFIX,fb.me
+DOMAIN-SUFFIX,fbcdn.net
+DOMAIN-SUFFIX,twimg.com
+DOMAIN-SUFFIX,youtu.be
+DOMAIN-SUFFIX,oculuscdn.com
+DOMAIN-SUFFIX,oculus.com
+DOMAIN-SUFFIX,letsencrypt.org
+DOMAIN-SUFFIX,android.com
+DOMAIN-SUFFIX,ytimg.com
+DOMAIN-SUFFIX,githubusercontent.com
+DOMAIN-SUFFIX,telegram.org
+DOMAIN-KEYWORD,google
+DOMAIN-KEYWORD,gmail
+DOMAIN-KEYWORD,youtube
+DOMAIN-KEYWORD,facebook
+DOMAIN-KEYWORD,twitter
+DOMAIN-KEYWORD,instagram
+DOMAIN-KEYWORD,dropbox
+DOMAIN-KEYWORD,blogspot
+DOMAIN-KEYWORD,whatsapp
