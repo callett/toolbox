@@ -73,8 +73,11 @@ EOF
 systemctl daemon-reload
 systemctl enable --now snell
 
+# 获取服务器公网IP
+IP=$(curl -s https://api.ipify.org)
+
 # 显示配置信息
 echo
 echo -e "${GREEN}✅ Snell 安装完成！${NC}"
-echo -e "${GREEN}监听地址：0.0.0.0:${PORT}${NC}"
+echo -e "${GREEN}监听地址：${IP}:${PORT}${NC}"
 echo -e "${GREEN}密钥（PSK）：${PSK}${NC}"
