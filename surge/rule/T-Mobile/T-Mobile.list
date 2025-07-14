@@ -1,3 +1,9 @@
+# NAME: T-Mobile
+# AUTHOR: Callett
+# DOMAIN-SUFFIX: 10
+# IP-CIDR: 3
+# TOTAL: 13
+
 DOMAIN-SUFFIX,t-mobile.com
 DOMAIN-SUFFIX,crl.t-mobile.com
 DOMAIN-SUFFIX,eas3.msg.t-mobile.com
