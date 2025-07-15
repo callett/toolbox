@@ -16,9 +16,8 @@ echo "=== 更新软件源并安装 Redis ==="
 sudo apt update
 sudo apt install -y redis
 
-echo "=== 启动 Redis 并设置开机启动 ==="
-sudo systemctl enable redis-server.service
-sudo systemctl start redis
+echo "=== 查看 Redis 状态 ==="
+sudo systemctl status redis
 
 echo "=== 验证 Redis 安装 ==="
 redis-server --version
