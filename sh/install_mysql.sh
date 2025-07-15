@@ -30,6 +30,7 @@ sudo apt install -y mysql-server
 echo "启动 MySQL 并设置为开机启动..."
 sudo systemctl enable mysql
 sudo systemctl start mysql
+sudo rm -rf mysql-apt-config.deb
 
 # 检查 MySQL 状态
 echo "MySQL 安装完成，当前状态："
