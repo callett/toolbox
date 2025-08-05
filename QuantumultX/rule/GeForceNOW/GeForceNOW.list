@@ -5,24 +5,24 @@
 # TOTAL: 18
 
 # GeForce NOW 核心
-HOST-SUFFIX,geforce.com
-HOST-SUFFIX,nvidia.com
-HOST-SUFFIX,nvidia-api.com
-HOST-SUFFIX,geforcenow.com
-HOST-SUFFIX,nvidiagrid.net
-HOST-SUFFIX,play.geforcenow.com
-HOST-SUFFIX,gfn.nvidia.com
-HOST-SUFFIX,gn.api.nvidia.com
-HOST-SUFFIX,gfn-speed.nvidia.com
-HOST-SUFFIX,nv.apps.nvidia.com
-HOST-SUFFIX,router.gfn.nvidia.com
-HOST-SUFFIX,relay.gfn.nvidia.com
-HOST-SUFFIX,dls.nvidia.com
-HOST-SUFFIX,ota-downloads.nvidia.com
+HOST-SUFFIX,geforce.com,GeForceNOW
+HOST-SUFFIX,nvidia.com,GeForceNOW
+HOST-SUFFIX,nvidia-api.com,GeForceNOW
+HOST-SUFFIX,geforcenow.com,GeForceNOW
+HOST-SUFFIX,nvidiagrid.net,GeForceNOW
+HOST-SUFFIX,play.geforcenow.com,GeForceNOW
+HOST-SUFFIX,gfn.nvidia.com,GeForceNOW
+HOST-SUFFIX,gn.api.nvidia.com,GeForceNOW
+HOST-SUFFIX,gfn-speed.nvidia.com,GeForceNOW
+HOST-SUFFIX,nv.apps.nvidia.com,GeForceNOW
+HOST-SUFFIX,router.gfn.nvidia.com,GeForceNOW
+HOST-SUFFIX,relay.gfn.nvidia.com,GeForceNOW
+HOST-SUFFIX,dls.nvidia.com,GeForceNOW
+HOST-SUFFIX,ota-downloads.nvidia.com,GeForceNOW
 
-IP-CIDR,66.22.144.47/32,no-resolve
+IP-CIDR,66.22.144.47/32,GeForceNOW
 
 # CDN 提升连接
-HOST-SUFFIX,akamaized.net
-HOST-SUFFIX,fastly.net
-HOST-SUFFIX,cloudfront.net
+HOST-SUFFIX,akamaized.net,GeForceNOW
+HOST-SUFFIX,fastly.net,GeForceNOW
+HOST-SUFFIX,cloudfront.net,GeForceNOW
