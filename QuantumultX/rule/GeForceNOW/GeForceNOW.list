@@ -1,0 +1,28 @@
+# NAME: GeForce NOW
+# AUTHOR: Callett
+# HOST-SUFFIX: 17
+# IP-CIDR: 1
+# TOTAL: 18
+
+# GeForce NOW 核心
+HOST-SUFFIX,geforce.com
+HOST-SUFFIX,nvidia.com
+HOST-SUFFIX,nvidia-api.com
+HOST-SUFFIX,geforcenow.com
+HOST-SUFFIX,nvidiagrid.net
+HOST-SUFFIX,play.geforcenow.com
+HOST-SUFFIX,gfn.nvidia.com
+HOST-SUFFIX,gn.api.nvidia.com
+HOST-SUFFIX,gfn-speed.nvidia.com
+HOST-SUFFIX,nv.apps.nvidia.com
+HOST-SUFFIX,router.gfn.nvidia.com
+HOST-SUFFIX,relay.gfn.nvidia.com
+HOST-SUFFIX,dls.nvidia.com
+HOST-SUFFIX,ota-downloads.nvidia.com
+
+IP-CIDR,66.22.144.47/32,no-resolve
+
+# CDN 提升连接
+HOST-SUFFIX,akamaized.net
+HOST-SUFFIX,fastly.net
+HOST-SUFFIX,cloudfront.net
