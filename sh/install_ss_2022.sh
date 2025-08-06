@@ -16,6 +16,8 @@ PORT=${PORT:-$DEFAULT_PORT}
 KEY=$(head -c 32 /dev/urandom | base64)
 
 # 下载并解压 Shadowsocks-Rust（v1.23.0）
+sudo apt update
+sudo apt install xz-utils
 mkdir -p ~/ss && cd ~/ss
 wget -q https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.23.0/shadowsocks-v1.23.0.x86_64-unknown-linux-gnu.tar.xz
 tar -xf shadowsocks-v1.23.0.x86_64-unknown-linux-gnu.tar.xz && rm -f shadowsocks-v1.23.0.x86_64-unknown-linux-gnu.tar.xz
