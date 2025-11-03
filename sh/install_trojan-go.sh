@@ -130,12 +130,12 @@ systemctl enable trojan-go
 systemctl restart trojan-go
 
 # ========== 防火墙 ==========
-if command -v ufw >/dev/null 2>&1; then
-    ufw allow "$LISTEN_PORT/tcp" || true
-fi
-if command -v iptables >/dev/null 2>&1; then
-    iptables -C INPUT -p tcp --dport "$LISTEN_PORT" -j ACCEPT 2>/dev/null || iptables -I INPUT -p tcp --dport "$LISTEN_PORT" -j ACCEPT
-fi
+# if command -v ufw >/dev/null 2>&1; then
+#     ufw allow "$LISTEN_PORT/tcp" || true
+# fi
+# if command -v iptables >/dev/null 2>&1; then
+#     iptables -C INPUT -p tcp --dport "$LISTEN_PORT" -j ACCEPT 2>/dev/null || iptables -I INPUT -p tcp --dport "$LISTEN_PORT" -j ACCEPT
+# fi
 
 # ========== 输出 Surge 配置 ==========
 echo
