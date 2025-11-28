@@ -1,70 +1,76 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -e
 
-# ========== 交互输入 ==========
-read -p "请输入域名 (SNI/证书使用的域名，例如 example.com): " DOMAIN
-read -p "请输入 trojan-go 监听端口 (默认 443): " LISTEN_PORT
-LISTEN_PORT=${LISTEN_PORT:-443}
-read -p "请输入 trojan 密码 (留空则自动生成): " PASSWORD
+# 颜色定义
+GREEN='\033[0;32m'
+NC='\033[0m' # 没颜色
 
-if [[ -z "$PASSWORD" ]]; then
-    PASSWORD=$(cat /proc/sys/kernel/random/uuid)
-    echo "未输入密码，已自动生成：$PASSWORD"
+echo "${GREEN}======================"
+echo "Trojan-Go 一键安装配置脚本"
+echo "======================${NC}"
+
+# 安装依赖
+echo "${GREEN}安装必要依赖${NC}"
+apt update -y && apt install -y curl sudo nano unzip socat cron jq ca-certificates
+
+# 获取公网 IP
+IP=$(curl -s https://api.ipify.org)
+
+# 输入端口
+read -p "${GREEN}请输入 Trojan-Go 监听端口（默认 443）: ${NC}" PORT
+PORT=${PORT:-443}
+
+# 输入域名
+read -p "${GREEN}请输入你的域名（用于 ACME 证书）: ${NC}" DOMAIN
+if [[ -z "$DOMAIN" ]]; then
+  echo "域名不能为空"
+  exit 1
 fi
 
-FALLBACK_PORT=80              # fallback HTTP 可改
-LISTEN_ADDR="0.0.0.0"
-CERT_BASE_DIR="/cert"
-CERT_DIR="${CERT_BASE_DIR}/${DOMAIN}"
+# 输入邮箱
+read -p "${GREEN}请输入你的邮箱（ACME 注册用）: ${NC}" EMAIL
+if [[ -z "$EMAIL" ]]; then
+  echo "邮箱不能为空"
+  exit 1
+fi
+
+# 输入密码，可选
+read -p "${GREEN}请输入 Trojan-Go 密码（留空则随机生成）: ${NC}" PASSWORD
+if [[ -z "$PASSWORD" ]]; then
+    PASSWORD=$(cat /proc/sys/kernel/random/uuid)
+    echo "未输入密码，已随机生成：$PASSWORD"
+fi
+
+# 目录和文件
+CERT_DIR="/cert/${DOMAIN}"
 CRT_PATH="${CERT_DIR}/fullchain.pem"
 KEY_PATH="${CERT_DIR}/privkey.pem"
-WORKDIR="/root/trojan_go_install"
-TG_BIN="/usr/local/bin/trojan-go"
 CONFIG_DIR="/etc/trojan-go"
+TG_BIN="/usr/local/bin/trojan-go"
 SERVICE_PATH="/etc/systemd/system/trojan-go.service"
 LOG_FILE="/var/log/trojan-go.log"
 RELOAD_CMD="systemctl restart trojan-go || true; systemctl restart nginx 2>/dev/null || true"
 
-# ========== 检查 root ==========
-if [[ $EUID -ne 0 ]]; then
-    echo "请以 root 或 sudo 运行此脚本" >&2
-    exit 1
-fi
+mkdir -p "$CERT_DIR" "$CONFIG_DIR"
 
-mkdir -p "$WORKDIR"
-cd "$WORKDIR"
-
-# ========== 安装依赖 ==========
-apt update
-apt install -y curl wget tar unzip jq ca-certificates socat cron
-
-# ========== 停止可能占用 80 端口的服务 ==========
-if ss -ltnp | grep -q ":80 "; then
-    echo "80端口被占用，尝试停止 nginx / apache2"
-    systemctl stop nginx 2>/dev/null || true
-    systemctl stop apache2 2>/dev/null || true
-fi
-
-# ========== 安装 acme.sh ==========
+# 安装 acme.sh 并注册账号
 if [[ ! -f /root/.acme.sh/acme.sh ]]; then
     curl https://get.acme.sh | sh
 fi
 ln -sf /root/.acme.sh/acme.sh /usr/local/bin/acme.sh
 export PATH="/root/.acme.sh:${PATH}"
-
-# ========== 设置默认 CA ==========
+/root/.acme.sh/acme.sh --register-account -m "$EMAIL"
 acme.sh --set-default-ca --server letsencrypt
 
-# ========== 申请证书 ==========
-mkdir -p "$CERT_DIR"
-echo "申请 TLS 证书..."
+# 申请证书
+echo "${GREEN}申请 TLS 证书...${NC}"
 acme.sh --issue -d "$DOMAIN" --standalone
 acme.sh --install-cert -d "$DOMAIN" \
     --key-file "$KEY_PATH" \
     --fullchain-file "$CRT_PATH" \
     --reloadcmd "$RELOAD_CMD"
 
-# ========== 下载 trojan-go ==========
+# 下载 trojan-go
 ARCH=$(uname -m)
 if [[ "$ARCH" == "x86_64" || "$ARCH" == "amd64" ]]; then
     ASSET_REGEX="linux-amd64.zip"
@@ -81,13 +87,12 @@ unzip -o trojan-go.zip -d trojan-go-bin
 cp trojan-go-bin/trojan-go "$TG_BIN"
 chmod +x "$TG_BIN"
 
-# ========== 写配置 ==========
-mkdir -p "$CONFIG_DIR"
+# 写配置文件
 cat > "$CONFIG_DIR/config.json" <<EOF
 {
   "run_type": "server",
-  "local_addr": "$LISTEN_ADDR",
-  "local_port": $LISTEN_PORT,
+  "local_addr": "0.0.0.0",
+  "local_port": $PORT,
   "remote_addr": "127.0.0.1",
   "remote_port": 80,
   "password": ["$PASSWORD"],
@@ -95,7 +100,7 @@ cat > "$CONFIG_DIR/config.json" <<EOF
     "cert": "$CRT_PATH",
     "key": "$KEY_PATH",
     "sni": "$DOMAIN",
-    "fallback_port": $FALLBACK_PORT
+    "fallback_port": 80
   },
   "websocket": { "enabled": false },
   "transport_plugin": { "enabled": false },
@@ -104,7 +109,7 @@ cat > "$CONFIG_DIR/config.json" <<EOF
 }
 EOF
 
-# ========== systemd 服务 ==========
+# systemd 服务
 cat > "$SERVICE_PATH" <<'SERVICE'
 [Unit]
 Description=trojan-go
@@ -129,21 +134,13 @@ systemctl daemon-reload
 systemctl enable trojan-go
 systemctl restart trojan-go
 
-# ========== 防火墙 ==========
-# if command -v ufw >/dev/null 2>&1; then
-#     ufw allow "$LISTEN_PORT/tcp" || true
-# fi
-# if command -v iptables >/dev/null 2>&1; then
-#     iptables -C INPUT -p tcp --dport "$LISTEN_PORT" -j ACCEPT 2>/dev/null || iptables -I INPUT -p tcp --dport "$LISTEN_PORT" -j ACCEPT
-# fi
-
-# ========== 输出 Surge 配置 ==========
-echo
-echo "================ 安装完成 ================="
-echo "Surge 配置示例："
-echo "-----------------------------------------------------"
-echo "TrojanProxy = trojan, $DOMAIN, $LISTEN_PORT, password=$PASSWORD, sni=$DOMAIN"
-echo "-----------------------------------------------------"
-echo "trojan-go 已启动，服务状态: systemctl status trojan-go -l"
-echo "证书续期时 acme.sh 会执行 reloadcmd 重启 trojan-go"
-echo "====================================================="
+# 输出结果
+echo "${GREEN}======================"
+echo "Trojan-Go 安装完成！"
+echo "端口: $PORT"
+echo "域名: $DOMAIN"
+echo "密码: $PASSWORD"
+echo ""
+echo "Surge 配置示例:"
+echo "TrojanProxy = trojan, $IP, $PORT, password=$PASSWORD, sni=$DOMAIN"
+echo "======================${NC}"
