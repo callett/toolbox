@@ -551,19 +551,19 @@ DOMAIN-SUFFIX,zuckerberg.com
 DOMAIN-SUFFIX,zuckerberg.net
 DOMAIN-KEYWORD,facebook
 DOMAIN-KEYWORD,fbcdn
-IP-CIDR,108.168.176.192/26,no-resolve
-IP-CIDR,108.168.177.0/27,no-resolve
-IP-CIDR,108.168.180.96/27,no-resolve
-IP-CIDR,108.168.254.65/32,no-resolve
-IP-CIDR,108.168.255.224/32,no-resolve
-IP-CIDR,108.168.255.227/32,no-resolve
-IP-CIDR,119.235.224.0/24,no-resolve
-IP-CIDR,119.235.232.0/24,no-resolve
-IP-CIDR,119.235.236.0/23,no-resolve
-IP-CIDR,129.134.0.0/17,no-resolve
-IP-CIDR,157.240.0.0/17,no-resolve
-IP-CIDR,173.252.64.0/18,no-resolve
-IP-CIDR,31.13.64.0/18,no-resolve
+# IP-CIDR,108.168.176.192/26,no-resolve
+# IP-CIDR,108.168.177.0/27,no-resolve
+# IP-CIDR,108.168.180.96/27,no-resolve
+# IP-CIDR,108.168.254.65/32,no-resolve
+# IP-CIDR,108.168.255.224/32,no-resolve
+# IP-CIDR,108.168.255.227/32,no-resolve
+# IP-CIDR,119.235.224.0/24,no-resolve
+# IP-CIDR,119.235.232.0/24,no-resolve
+# IP-CIDR,119.235.236.0/23,no-resolve
+# IP-CIDR,129.134.0.0/17,no-resolve
+# IP-CIDR,157.240.0.0/17,no-resolve
+# IP-CIDR,173.252.64.0/18,no-resolve
+# IP-CIDR,31.13.64.0/18,no-resolve
 
 # IP-CIDR,169.45.248.118/32,no-resolve       # 单点 IP，不是核心 Facebook，几乎不会访问
 # IP-CIDR,3.123.36.126/32,no-resolve         # AWS 节点，不直接对应 Facebook，可能误伤其他服务
