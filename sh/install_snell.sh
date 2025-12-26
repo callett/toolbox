@@ -9,7 +9,7 @@ set -e
 # 更新系统并安装必要工具
 echo -e "${GREEN}正在安装必要工具...${NC}"
 apt update
-apt install -y wget unzip
+apt install -y wget unzip curl
 
 # 可选版本
 echo -e "${GREEN}请选择要安装的 Snell Server 版本："
