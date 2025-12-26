@@ -16,14 +16,13 @@ SERVER_NAME=${SERVER_NAME:-www.microsoft.com}
 
 # 安装 Xray
 echo -e "${GREEN}正在安装 Xray...${NC}"
-# bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version 25.6.8
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
 
 # 生成 UUID 和密钥对
 UUID=$(xray uuid)
 KEYS=$(xray x25519)
-PRIVATE_KEY=$(echo "$KEYS" | grep 'Private key' | awk '{print $NF}')
-PUBLIC_KEY=$(echo "$KEYS" | grep 'Public key' | awk '{print $NF}')
+PRIVATE_KEY=$(echo "$KEYS" | grep 'PrivateKey' | awk '{print $NF}')
+PUBLIC_KEY=$(echo "$KEYS" | grep 'Password' | awk '{print $NF}')
 
 # 生成 16 位 shortId
 SHORT_ID=$(cat /dev/urandom | tr -dc 'a-f0-9' | fold -w 16 | head -n 1)
