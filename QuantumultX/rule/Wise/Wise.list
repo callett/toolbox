@@ -1,0 +1,12 @@
+# NAME: Wise
+# AUTHOR: Simon
+# HOST: 4
+# HOST-SUFFIX: 2
+# TOTAL: 6
+
+HOST,identity.wise.com,Wise
+HOST,verify.wise.com,Wise
+HOST,checkout.wise.com,Wise
+HOST,pay.wise.com,Wise
+HOST-SUFFIX,wise.com,Wise
+HOST-SUFFIX,transferwise.com,Wise
