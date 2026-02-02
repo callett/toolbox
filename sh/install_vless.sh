@@ -32,7 +32,7 @@ CONFIG_PATH="/usr/local/etc/xray/config.json"
 cat > "$CONFIG_PATH" << EOF
 {
   "log": {
-    "loglevel": "debug"
+    "loglevel": "warning"
   },
   "inbounds": [
     {
