@@ -229,6 +229,7 @@ if (ip.startsWith("172.81.")) {
     countryCode = "JP";
     countryName = "日本";
     city = "东京";
+    region = "日本东京";
 }
 
 // title / subtitle / description
