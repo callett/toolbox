@@ -48,7 +48,7 @@ var isp = ISP_ValidCheck(obj["isp"] || obj["org"] || "");
 var ip = obj["query"] || obj["ip"] || "";
 
 // title / subtitle / description
-var title = (flags.get(countryCode) || "🏳️") + " " + city;
+var title = (flags.get(countryCode) || "🏳️") + " " + countryName + " " + city;
 var subtitle = isp;
 var description = "服务商: " + isp + "\n地区: " + region + "\nIP: " + ip + "\n时区: " + (obj["timezone"] || "");
 
