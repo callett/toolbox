@@ -246,9 +246,9 @@ var flags = new Map([
 
 var body = $response.body;
 var obj = JSON.parse(body);
-var title = flags.get(obj["countryCode"] || obj["country_code"]) + " " + Area_check(obj['country']) + " " + City_ValidCheck(obj["city"]);
-var subtitle = ISP_ValidCheck(obj["isp"] || obj["org"]);
-var ip = obj["query"] || obj["ip"];
+var title = flags.get(obj["country_code"]) + " " + Area_check(obj['country']) + " " + City_ValidCheck(obj["city"]);
+var subtitle = ISP_ValidCheck(obj["isp"]);
+var ip = obj["ip"];
 var description =
   "服务商:" +
   obj["isp"] +
@@ -257,7 +257,7 @@ var description =
   City_ValidCheck(obj["regionName"] || obj["region"]) +
   "\n" +
   "IP:" +
-  obj["query"] || obj["ip"] +
+  obj["ip"] +
   "\n" +
   "时区:" +
   obj["timezone"];
