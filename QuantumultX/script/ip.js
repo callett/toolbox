@@ -248,15 +248,16 @@ var body = $response.body;
 var obj = JSON.parse(body);
 var title = flags.get(obj["countryCode"] || obj["country_code"]) + " " + Area_check(obj['country']) + " " + City_ValidCheck(obj["city"]);
 var subtitle = ISP_ValidCheck(obj["isp"] || obj["org"]);
+var ip = obj["query"] || obj["ip"];
 var description =
   "服务商:" +
   obj["isp"] +
   "\n" +
   "地区:" +
-  City_ValidCheck(obj["regionName"] || obj["regionName"]) +
+  City_ValidCheck(obj["regionName"] || obj["region"]) +
   "\n" +
   "IP:" +
-  obj["query"] +
+  obj["query"] || obj["ip"] +
   "\n" +
   "时区:" +
   obj["timezone"];
