@@ -254,7 +254,7 @@ var description =
   obj["isp"] +
   "\n" +
   "地区:" +
-  City_ValidCheck(obj["regionName"] || obj["region"]) +
+  City_ValidCheck(obj["region"]) +
   "\n" +
   "IP:" +
   obj["ip"] +
