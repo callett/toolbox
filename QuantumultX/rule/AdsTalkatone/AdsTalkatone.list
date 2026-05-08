@@ -1,0 +1,16 @@
+# NAME: AdsTalkatone
+# AUTHOR: Simon
+# HOST-SUFFIX: 9
+# HOST-KEYWORD: 1
+# TOTAL: 10
+
+HOST-SUFFIX,ads.inmobi.com,AdsTalkatone
+HOST-SUFFIX,tappx.com,AdsTalkatone
+HOST-SUFFIX,criteo.com,AdsTalkatone
+HOST-SUFFIX,pubmatic.com,AdsTalkatone
+HOST-SUFFIX,smaato.net,AdsTalkatone
+HOST-SUFFIX,amazon-adsystem.com,AdsTalkatone
+HOST-SUFFIX,adsappier.com,AdsTalkatone
+HOST-SUFFIX,appier.net,AdsTalkatone
+HOST-SUFFIX,appiersig.com,AdsTalkatone
+HOST-KEYWORD,googleads,AdsTalkatone

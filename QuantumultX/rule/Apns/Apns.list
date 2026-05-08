@@ -1,0 +1,22 @@
+# NAME: Apns
+# AUTHOR: Simon
+# HOST-SUFFIX: 2
+# HOST-KEYWORD: 1
+# IP-CIDR: 5
+# IP6-CIDR: 4
+# TOTAL: 12
+
+# APNS
+HOST-SUFFIX,push.apple.com,Apns
+HOST-SUFFIX,akadns.net,Apns
+HOST-KEYWORD,apple.com.edgekey.net,Apns
+
+IP-CIDR,17.249.0.0/16,Apns
+IP-CIDR,17.252.0.0/16,Apns
+IP-CIDR,17.57.144.0/22,Apns
+IP-CIDR,17.188.128.0/18,Apns
+IP-CIDR,17.188.20.0/23,Apns
+IP6-CIDR,2620:149:a44::/48,Apns
+IP6-CIDR,2403:300:a42::/48,Apns
+IP6-CIDR,2403:300:a51::/48,Apns
+IP6-CIDR,2a01:b740:a42::/48,Apns

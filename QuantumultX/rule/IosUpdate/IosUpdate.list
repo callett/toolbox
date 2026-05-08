@@ -1,0 +1,10 @@
+# NAME: IosUpdate
+# AUTHOR: Simon
+# HOST: 4
+
+# 屏蔽iOS更新
+host,mesu.apple.com,IosUpdate
+host,gdmf.apple.com,IosUpdate
+host,updates-http.cdn-apple.com,IosUpdate
+host,xp.apple.com,IosUpdate
+
