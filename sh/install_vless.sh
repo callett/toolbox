@@ -48,7 +48,7 @@ cat > "$CONFIG_PATH" << EOF
         "decryption": "none"
       },
       "streamSettings": {
-        "network": "tcp",
+        "network": "raw",
         "security": "reality",
         "realitySettings": {
           "dest": "$SERVER_NAME:443",
