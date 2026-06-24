@@ -1,0 +1,33 @@
+# NAME: DouYin
+# AUTHOR: simon
+# HOST: 2
+# HOST-SUFFIX: 11
+# TOTAL: 13
+
+HOST,lf3-static.bytednsdoc.com
+HOST,v5-dy-o-abtest.zjcdn.com
+HOST-SUFFIX,douyin.com
+HOST-SUFFIX,amemv.com
+HOST-SUFFIX,douyincdn.com
+HOST-SUFFIX,douyinpic.com
+HOST-SUFFIX,douyinstatic.com
+HOST-SUFFIX,douyinvod.com
+HOST-SUFFIX,idouyinvod.com
+HOST-SUFFIX,ixigua.com
+HOST-SUFFIX,ixiguavideo.com
+HOST-SUFFIX,pstatp.com
+HOST-SUFFIX,snssdk.com
+HOST-SUFFIX,toutiao.com
+HOST-SUFFIX,zijieapi.com
+HOST-SUFFIX,bdurl.net
+HOST-SUFFIX,bytedance.com
+HOST-SUFFIX,bytegecko.com
+HOST-SUFFIX,hypercachenode.com
+HOST-SUFFIX,byteimg.com
+HOST-SUFFIX,bytegoofy.com
+HOST-SUFFIX,bytetcc.com
+HOST-SUFFIX,yhgfb-cn-static.com
+HOST-SUFFIX,ibytedapm.com
+HOST-SUFFIX,bytegoofy.com
+HOST-SUFFIX,ndcpp.com
+HOST-SUFFIX,feelgood.cn
