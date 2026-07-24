@@ -17,15 +17,27 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # ========== 下载安装 sing-box ==========
-echo -e "${YELLOW}正在下载并安装 sing-box...${NC}"
+echo -e "${YELLOW}正在下载并安装 sing-box 最新版本...${NC}"
+
 cd /tmp
-SINGBOX_VERSION="1.14.0-alpha.38"
+
+SINGBOX_VERSION=$(curl -s https://api.github.com/repos/SagerNet/sing-box/releases/latest \
+| grep '"tag_name":' \
+| sed -E 's/.*"v([^"]+)".*/\1/')
+
+echo "Latest sing-box version: ${SINGBOX_VERSION}"
+
 wget -q "https://github.com/SagerNet/sing-box/releases/download/v${SINGBOX_VERSION}/sing-box-${SINGBOX_VERSION}-linux-amd64.tar.gz"
+
 tar -xzf sing-box-*.tar.gz
+
 cd sing-box-*/
+
 install -m 755 sing-box /usr/local/bin/
+
 cd /tmp
-rm -rf sing-box-"${SINGBOX_VERSION}"-linux-amd64
+
+rm -rf "sing-box-${SINGBOX_VERSION}-linux-amd64"
 rm -f sing-box-*.tar.gz
 
 if ! command -v sing-box &> /dev/null; then
