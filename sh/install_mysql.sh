@@ -12,7 +12,7 @@ RELEASE=$(lsb_release -cs)
 
 # 下载最新版 MySQL APT 配置包（当前指向官方固定链接）
 echo "下载 MySQL APT 配置包..."
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.34-1_all.deb -O mysql-apt-config.deb
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.40-1_all.deb -O mysql-apt-config.deb
 
 # 安装 MySQL APT 配置包
 echo "安装 MySQL APT 配置包（请在弹出的界面中选择 MySQL 8.0 或所需版本，然后按 Tab -> Enter）..."
