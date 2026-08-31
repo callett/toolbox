@@ -1,0 +1,24 @@
+# NAME: System
+# AUTHOR: Simon
+# HOST: 12
+# HOST-SUFFIX:6
+# TOTAL: 18  
+
+HOST,api.smoot.apple.com,System
+HOST,captive.apple.com,System
+HOST,xp.apple.com,System
+HOST,configuration.apple.com,System
+HOST,guzzoni.apple.com,System
+HOST,smp-device-content.apple.com,System
+HOST,aod.itunes.apple.com,System
+HOST,mesu.apple.com,System
+HOST,api.smoot.apple.cn,System
+HOST,gs-loc.apple.com,System
+HOST,mvod.itunes.apple.com,System
+HOST,streamingaudio.itunes.apple.com,System
+HOST-SUFFIX,ess.apple.com,System
+HOST-SUFFIX,push-apple.com.akadns.net,System
+HOST-SUFFIX,push.apple.com,System
+HOST-SUFFIX,lcdn-locator.apple.com,System
+HOST-SUFFIX,lcdn-registration.apple.com,System
+HOST-SUFFIX,ls.apple.com,System
