@@ -3,22 +3,22 @@
 # HOST-KEYWORD: 1
 # HOST-SUFFIX: 18
 # TOTAL: 19
-HOST-SUFFIX,public.bnbstatic.com
-HOST-SUFFIX,bin.bnbstatic.com
-HOST-SUFFIX,public.bnbstatic.com
-HOST-SUFFIX,log.bntrace.com
-HOST-SUFFIX,sfstream.binance.info
-HOST-SUFFIX,fstream.binance.info
-HOST-SUFFIX,sdstream.binance.info
-HOST-SUFFIX,nbstream.binance.info
-HOST-SUFFIX,stream.binance.info
-HOST-SUFFIX,appsflayer.com
-HOST-SUFFIX,binance.cloud
-HOST-SUFFIX,binance.com
-HOST-SUFFIX,binance.me
-HOST-SUFFIX,bnappzh.co
-HOST-SUFFIX,bnbstatic.com
-HOST-SUFFIX,bnbzh.ac
-HOST-SUFFIX,bntrace.com
-HOST-SUFFIX,saasexch.com
-HOST-KEYWORD,binance
+HOST-SUFFIX,public.bnbstatic.com,Binance
+HOST-SUFFIX,bin.bnbstatic.com,Binance
+HOST-SUFFIX,public.bnbstatic.com,Binance
+HOST-SUFFIX,log.bntrace.com,Binance
+HOST-SUFFIX,sfstream.binance.info,Binance
+HOST-SUFFIX,fstream.binance.info,Binance
+HOST-SUFFIX,sdstream.binance.info,Binance
+HOST-SUFFIX,nbstream.binance.info,Binance
+HOST-SUFFIX,stream.binance.info,Binance
+HOST-SUFFIX,appsflayer.com,Binance
+HOST-SUFFIX,binance.cloud,Binance
+HOST-SUFFIX,binance.com,Binance
+HOST-SUFFIX,binance.me,Binance
+HOST-SUFFIX,bnappzh.co,Binance
+HOST-SUFFIX,bnbstatic.com,Binance
+HOST-SUFFIX,bnbzh.ac,Binance
+HOST-SUFFIX,bntrace.com,Binance
+HOST-SUFFIX,saasexch.com,Binance
+HOST-KEYWORD,binance,Binance

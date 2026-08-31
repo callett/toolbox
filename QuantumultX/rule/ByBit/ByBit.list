@@ -2,9 +2,9 @@
 # AUTHOR: Simon
 # HOST-SUFFIX: 6
 # TOTAL: 6
-HOST-SUFFIX,bybit.com
-HOST-SUFFIX,bybit.biz
-HOST-SUFFIX,bybdc6.com
-HOST-SUFFIX,byabcde.com
-HOST-SUFFIX,byapps.net
-HOST-SUFFIX,byd3c3.com
+HOST-SUFFIX,bybit.com,ByBit
+HOST-SUFFIX,bybit.biz,ByBit
+HOST-SUFFIX,bybdc6.com,ByBit
+HOST-SUFFIX,byabcde.com,ByBit
+HOST-SUFFIX,byapps.net,ByBit
+HOST-SUFFIX,byd3c3.com,ByBit
