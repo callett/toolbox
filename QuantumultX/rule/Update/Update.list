@@ -3,8 +3,8 @@
 # HOST: 4
 
 # 屏蔽iOS更新
-host,mesu.apple.com,IosUpdate
-host,gdmf.apple.com,IosUpdate
-host,updates-http.cdn-apple.com,IosUpdate
-host,xp.apple.com,IosUpdate
+host,mesu.apple.com,Update
+host,gdmf.apple.com,Update
+host,updates-http.cdn-apple.com,Update
+host,xp.apple.com,Update
 
