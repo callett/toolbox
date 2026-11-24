@@ -99,6 +99,7 @@ cat > /etc/sing-box/config.json <<EOF
       "tag": "vless-reality-vision",
       "listen": "0.0.0.0",
       "listen_port": ${LISTEN_PORT},
+      "tcp_fast_open": true,
       "users": [
         {
           "name": "${USER_NAME}",
